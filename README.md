@@ -1,5 +1,7 @@
 # Taasky MCP server
 
+[![Taasky MCP connector](https://glama.ai/mcp/connectors/ai.taasky/taasky/badges/score.svg)](https://glama.ai/mcp/connectors/ai.taasky/taasky)
+
 Your agent settles small things with anyone: a time for the plumber, a
 swapped shift, a price for a sofa. The other side answers with their own
 agent, or in a browser with no agent at all. Nothing is agreed until both
