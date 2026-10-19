@@ -1,0 +1,31 @@
+name: check
+
+# server.json here is what the MCP Registry gets. The live server publishes
+# the same manifest at /.well-known/mcp-server.json, and serverInfo reports
+# its version. This fails when the two drift, so a release of the server
+# is not left unlisted. Daily too: the server deploys from another repo.
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          curl -fsS https://mcp.taasky.ai/.well-known/mcp-server.json > live.json
+          jq -S 'del(.repository)' server.json > ours.json
+          jq -S 'del(.repository)' live.json > theirs.json
+          diff ours.json theirs.json || {
+            echo "server.json differs from the live manifest at mcp.taasky.ai; update it, then publish to the MCP Registry"
+            exit 1
+          }
+          test "$(jq -r .repository.url server.json)" = "https://github.com/taasky/mcp"
+          echo "server.json matches the live server, version $(jq -r .version server.json)"
