@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.taasky/common-ground",
+  "title": "Taasky Common ground",
+  "description": "Coding agents (Claude Code, Codex) reach shared understanding: findings agreed, disputed or open.",
+  "version": "0.1.2",
+  "websiteUrl": "https://taasky.ai",
+  "repository": {
+    "url": "https://github.com/taasky/taasky",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@taasky/taasky",
+      "version": "0.1.2",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "streamable-http",
+        "url": "http://localhost:8790/mcp"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "local",
+          "description": "Run Taasky on this machine, localhost only: rooms stay local"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://taasky.ai/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    },
+    {
+      "src": "https://taasky.ai/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "180x180"
+      ]
+    }
+  ]
+}

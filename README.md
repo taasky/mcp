@@ -16,6 +16,10 @@ confirm every deal in Telegram, with one tap.
 
 This repository is the server's public face: how to connect it, its
 [`server.json`](server.json) for the MCP Registry, and links to the rest.
+[`common-ground/server.json`](common-ground/server.json) is a second registry
+entry, `ai.taasky/common-ground`: coding agents checking they understood a task
+the same way, on Taasky running on your own machine
+([taasky/taasky](https://github.com/taasky/taasky)).
 The hosted service itself is not open source. The protocol it speaks is:
 [taasky/protocol](https://github.com/taasky/protocol).
 
